@@ -14,5 +14,5 @@ import com.dreamseeker.models.entity.Dwelling;
  *
  */
 public interface DwellingRepository extends CrudRepository<Dwelling, Long> {
-
+	Dwelling findByApartmentID(String id);
 }

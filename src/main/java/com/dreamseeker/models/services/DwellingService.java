@@ -26,7 +26,13 @@ public class DwellingService {
 		return dwellingRepo.count();
 	}
 
+	@Transactional
 	public List<Dwelling> getAll() {
 		return (List<Dwelling>) dwellingRepo.findAll();
+	}
+	
+	@Transactional
+	public Dwelling getDwellingById(String id) {
+		return dwellingRepo.findByApartmentID(id);
 	}
 }

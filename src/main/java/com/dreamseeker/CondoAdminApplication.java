@@ -28,6 +28,8 @@ public class CondoAdminApplication {
 			for (Dwelling dwelling : service.getAll()) {
 				log.info(dwelling.toString());
 			}
+			
+			log.info(service.getDwellingById("A").toString());
 		};
 		}
 
