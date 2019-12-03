@@ -17,7 +17,7 @@ public class CondoAdminApplication {
 		SpringApplication.run(CondoAdminApplication.class, args);
 	}
 	
-	private static final Logger log = LoggerFactory.getLogger(CondoAdminApplication.class);
+	/*private static final Logger log = LoggerFactory.getLogger(CondoAdminApplication.class);
 	
 	@Bean
 	public CommandLineRunner demo(DwellingService service) {
@@ -31,7 +31,7 @@ public class CondoAdminApplication {
 			
 			log.info(service.getDwellingById("A").toString());
 		};
-		}
+		}*/
 
 
 }
