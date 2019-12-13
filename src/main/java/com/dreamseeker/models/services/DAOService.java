@@ -45,5 +45,12 @@ public class DAOService {
 		return personRepo.findByDni(dni);
 	}
 	
+	@Transactional
+	public Dwelling updateDebt(float debt, String id) {		
+		Dwelling dwellingToUpdate = getDwellingById(id);
+		dwellingToUpdate.setDebt(debt);
+		return dwellingRepo.save(dwellingToUpdate);
+	}
+	
 	
 }

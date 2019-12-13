@@ -68,5 +68,19 @@ class CondoAdminApplicationTests {
 
 		assertThat(persons, containsInAnyOrder(testPerson1, testPerson2));
 	}
+	
+	@Test
+	public void whenUpdatingTheDebt() {
+		Dwelling testDwelling = new Dwelling(5, "A", 50000);
+		entityManager.persist(testDwelling);
+		entityManager.flush();
+		
+		Dwelling dwelling = repo.findByApartmentID("A");
+		dwelling.setDebt(10000);
+		repo.save(dwelling);
+		
+		assertThat(dwelling.getApartmentID()).isEqualTo(testDwelling.getApartmentID());
+		assertThat(dwelling.getDebt()).isEqualTo(10000);
+	}
 
 }

@@ -54,5 +54,7 @@ public class Dwelling implements Serializable {
 		return debt;
 	}
 	
-
+	public void setDebt(float debt) {
+		this.debt = debt;
+	}
 }
