@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="untitled" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dreamseeker.controllers.MainController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="consultButton" layoutX="273.0" layoutY="113.0" mnemonicParsing="false" text="Consultar" />
+            <Button fx:id="addShipment" layoutX="261.0" layoutY="187.0" mnemonicParsing="false" text="Agregar Envio" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>

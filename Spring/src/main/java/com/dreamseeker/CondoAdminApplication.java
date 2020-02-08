@@ -1,13 +1,14 @@
 package com.dreamseeker;
 
-import org.springframework.boot.SpringApplication;
+import javafx.application.Application;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SuppressWarnings("restriction")
 @SpringBootApplication
 public class CondoAdminApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CondoAdminApplication.class, args);
+		Application.launch(JavaFxApplication.class, args);
 	}
 	
 	/*private static final Logger log = LoggerFactory.getLogger(CondoAdminApplication.class);
