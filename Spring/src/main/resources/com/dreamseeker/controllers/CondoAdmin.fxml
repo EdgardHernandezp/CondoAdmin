@@ -8,7 +8,7 @@
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <Button fx:id="consultButton" layoutX="273.0" layoutY="113.0" mnemonicParsing="false" text="Consultar" />
+            <Button fx:id="consultButton" layoutX="273.0" layoutY="113.0" mnemonicParsing="false" onAction="#openConsultWindow" text="Consultar" />
             <Button fx:id="addShipment" layoutX="261.0" layoutY="187.0" mnemonicParsing="false" text="Agregar Envio" />
          </children></AnchorPane>
   </content>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox fx:id="root" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TabPane prefHeight="292.0" prefWidth="331.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Find by Name">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button layoutX="250.0" layoutY="224.0" mnemonicParsing="false" text="Accept" />
+                              <TextField layoutX="154.0" layoutY="46.0" />
+                              <TextField layoutX="154.0" layoutY="107.0" />
+                              <Label layoutX="50.0" layoutY="50.0" text="Name" />
+                              <Label layoutX="50.0" layoutY="111.0" text="Last Name" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Find By Department">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="39.0" layoutY="84.0" text="Department Number" />
+                              <TextField layoutX="166.0" layoutY="80.0" />
+                              <Button layoutX="241.0" layoutY="199.0" mnemonicParsing="false" text="Accept" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Find by ID">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="253.0" prefWidth="293.0">
+                           <children>
+                              <Button layoutX="258.0" layoutY="224.0" mnemonicParsing="false" text="Button" />
+                              <TextField layoutX="148.0" layoutY="85.0" />
+                              <Label layoutX="65.0" layoutY="89.0" text="Owner ID" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
