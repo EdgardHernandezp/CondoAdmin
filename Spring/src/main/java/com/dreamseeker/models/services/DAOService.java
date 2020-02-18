@@ -1,5 +1,6 @@
 package com.dreamseeker.models.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -43,6 +44,11 @@ public class DAOService {
 	@Transactional
 	public Person getPersonByDNI(String dni) {
 		return personRepo.findByDni(dni);
+	}
+	
+	@Transactional
+	public ArrayList<Person> getPersonByName(String name, String lastName) {
+		return personRepo.findByNameAndLastName(name, lastName);
 	}
 	
 	@Transactional

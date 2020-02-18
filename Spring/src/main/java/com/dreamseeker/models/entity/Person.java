@@ -5,6 +5,7 @@ package com.dreamseeker.models.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,9 +24,13 @@ public class Person implements Serializable {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 	private String name;
+	@Column(name = "lastname")
 	private String lastName;
 	private String dni;
 	private String apartmentID;
+	
+	public Person() {
+	}
 	
 	public Person(String name, String lastName, String dni, String apartmentID) {
 		this.name = name;

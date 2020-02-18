@@ -7,9 +7,9 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="root" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="root" prefHeight="287.0" prefWidth="332.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dreamseeker.controllers.ConsultFilterController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="268.0" prefWidth="307.0" VBox.vgrow="ALWAYS">
          <children>
             <TabPane prefHeight="292.0" prefWidth="331.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
@@ -17,11 +17,12 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <Button layoutX="250.0" layoutY="224.0" mnemonicParsing="false" text="Accept" />
-                              <TextField layoutX="154.0" layoutY="46.0" />
-                              <TextField layoutX="154.0" layoutY="107.0" />
+                              <Button layoutX="250.0" layoutY="224.0" mnemonicParsing="false" onAction="#findPersonByName" text="Accept" />
+                              <TextField fx:id="name" layoutX="154.0" layoutY="46.0" />
+                              <TextField fx:id="lastName" layoutX="154.0" layoutY="107.0" />
                               <Label layoutX="50.0" layoutY="50.0" text="Name" />
                               <Label layoutX="50.0" layoutY="111.0" text="Last Name" />
+                              <Label fx:id="test" layoutX="78.0" layoutY="181.0" text="Label" />
                            </children>
                         </AnchorPane>
                   </content>
