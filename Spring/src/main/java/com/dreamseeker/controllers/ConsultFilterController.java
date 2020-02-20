@@ -28,14 +28,21 @@ public class ConsultFilterController {
 	@FXML
 	private TextField lastName;
 	
+	@FXML
+	private TextField apartmentId;
+	
+	@FXML
+	private TextField dni;
+	
     @FXML
     private Label test;
     
     @FXML
     private Label testDep;
     
-	@FXML
-	private TextField apartmentId;
+    @FXML
+    private Label testDNI;
+
 	
 	public void findPersonByName() {
 		List<Person> persons = daoService.getPersonByName(name.getText(), lastName.getText());
@@ -52,5 +59,13 @@ public class ConsultFilterController {
 			testDep.setText("FOUND");
 		else
 			testDep.setText("NOT FOUND");		
+	}
+	
+	public void findPersonByDNI() {
+		Person person = daoService.getPersonByDNI(dni.getText());
+		if (person != null)
+			testDNI.setText("FOUND");
+		else
+			testDNI.setText("NOT FOUND");		
 	}
 }
