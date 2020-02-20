@@ -52,6 +52,11 @@ public class DAOService {
 	}
 	
 	@Transactional
+	public Person getPersonByApartmentId(String apartmentId) {
+		return personRepo.findByApartmentID(apartmentId);
+	}
+	
+	@Transactional
 	public Dwelling updateDebt(float debt, String id) {		
 		Dwelling dwellingToUpdate = getDwellingById(id);
 		dwellingToUpdate.setDebt(debt);

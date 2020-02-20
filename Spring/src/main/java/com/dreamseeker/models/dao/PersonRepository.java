@@ -9,5 +9,6 @@ import com.dreamseeker.models.entity.Person;
 public interface PersonRepository extends CrudRepository<Person, Long> {
 	Person findByDni(String dni);
 	ArrayList<Person> findByNameAndLastName(String name, String lastName);
+	Person findByApartmentID(String apartmentID);
 	
 }
