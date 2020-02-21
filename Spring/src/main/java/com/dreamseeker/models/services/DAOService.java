@@ -37,7 +37,7 @@ public class DAOService {
 	}
 	
 	@Transactional
-	public Dwelling getDwellingById(String id) {
+	public Dwelling getDwellingByApartmentId(String id) {
 		return dwellingRepo.findByApartmentID(id);
 	}
 	
@@ -58,7 +58,7 @@ public class DAOService {
 	
 	@Transactional
 	public Dwelling updateDebt(float debt, String id) {		
-		Dwelling dwellingToUpdate = getDwellingById(id);
+		Dwelling dwellingToUpdate = getDwellingByApartmentId(id);
 		dwellingToUpdate.setDebt(debt);
 		return dwellingRepo.save(dwellingToUpdate);
 	}
