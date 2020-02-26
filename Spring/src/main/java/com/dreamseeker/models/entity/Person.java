@@ -55,10 +55,10 @@ public class Person implements Serializable {
 		return apartmentID;
 	}
 
-    @Override
+	@Override
     public String toString() {
         return String.format(
-                "Person[name=%d, last name='%s', dni='%s', apartmentID='%s']",
+                "Person[name=%s, last name='%s', dni='%s', apartmentID='%s']",
                 name, lastName, dni, apartmentID);
     }
 
