@@ -34,6 +34,7 @@
                               <Label layoutX="39.0" layoutY="84.0" text="Department Number" />
                               <TextField fx:id="apartmentId" layoutX="166.0" layoutY="80.0" />
                               <Button layoutX="241.0" layoutY="199.0" mnemonicParsing="false" onAction="#findPersonByApartmentId" text="Buscar" />
+                              <Button fx:id="accessUserButtonDep" layoutX="66.0" layoutY="199.0" mnemonicParsing="false" onAction="#openResultWindow" text="Aceptar" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -45,6 +46,7 @@
                               <Button layoutX="245.0" layoutY="195.0" mnemonicParsing="false" onAction="#findPersonByDNI" text="Buscar" />
                               <TextField fx:id="dni" layoutX="148.0" layoutY="85.0" />
                               <Label layoutX="65.0" layoutY="89.0" text="Owner ID" />
+                              <Button fx:id="accessUserButtonDni" layoutX="62.0" layoutY="195.0" mnemonicParsing="false" onAction="#openResultWindow" text="Aceptar" />
                            </children>
                         </AnchorPane>
                     </content>

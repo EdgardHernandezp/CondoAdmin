@@ -60,6 +60,11 @@ public class ConsultFilterController {
 																						// instanciarlo en la
 																						// declaracion
 
+		fillListWithResults();
+
+	}
+
+	private void fillListWithResults() {
 		if (personsResult.size() > 0) {
 			List<String> personsString = new ArrayList<String>();
 			for (Person person : personsResult) {
@@ -68,22 +73,20 @@ public class ConsultFilterController {
 			ObservableList<String> results = FXCollections.observableArrayList(personsString);
 			resultList.setItems(results);
 		}
-
 	}
 
 	public void findPersonByApartmentId() {
-		Person person = daoService.getPersonByApartmentId(apartmentId.getText());
-		Dwelling dwelling = daoService.getDwellingByApartmentId(person.getApartmentID());
-
-		openResultWindow();
+		personsResult = new ArrayList<>();
+		personsResult.add(daoService.getPersonByApartmentId(apartmentId.getText())); //TODO personResult should be emptied when it's use in the different tabs
+		fillListWithResults();
+//		openResultWindow();
 	}
 
 	public void findPersonByDNI() {
-		Person person = daoService.getPersonByDNI(dni.getText());
-		Dwelling dwelling = daoService.getDwellingByApartmentId(person.getApartmentID()); // TODO duplicated code,
-																							// factorize
-
-		openResultWindow();
+		personsResult = new ArrayList<>();
+		personsResult.add(daoService.getPersonByDNI(dni.getText()));
+		fillListWithResults();
+//		openResultWindow();
 	}
 
 	public void openResultWindow() {
