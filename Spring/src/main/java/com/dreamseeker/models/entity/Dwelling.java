@@ -2,6 +2,7 @@ package com.dreamseeker.models.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,13 +20,20 @@ public class Dwelling implements Serializable {
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+	private String name;
+	@Column(name = "lastname")
+	private String lastName;
+	private String dni;
 	private int floor;
 	private String apartmentID;
 	private float debt;
 	
 	protected Dwelling() {}
 
-	public Dwelling(int floor, String apartmentID, float debt) {
+	public Dwelling(String name, String lastName, String dni, int floor, String apartmentID, float debt) {
+		this.name = name;
+		this.lastName = lastName;
+		this.dni = dni;
 		this.floor = floor;
 		this.apartmentID = apartmentID;
 		this.debt = debt;
@@ -34,7 +42,7 @@ public class Dwelling implements Serializable {
     @Override
     public String toString() {
         return String.format(
-                "Dwelling[floor=%d, apartmentID='%s', debt='%s']",
+                "Dwelling[name=%s, last name='%s', dni='%s', floor=%d, apartmentID='%s', debt='%s']", name, lastName, dni,
                 floor, apartmentID, debt);
     }
 
@@ -42,6 +50,18 @@ public class Dwelling implements Serializable {
 		return id;
 	}
 
+	public String getName() {
+		return name;
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+	
 	public int getFloor() {
 		return floor;
 	}

@@ -15,9 +15,7 @@ import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInA
 import static org.junit.Assert.assertThat;
 
 import com.dreamseeker.models.dao.DwellingRepository;
-import com.dreamseeker.models.dao.PersonRepository;
 import com.dreamseeker.models.entity.Dwelling;
-import com.dreamseeker.models.entity.Person;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -29,12 +27,9 @@ class CondoAdminApplicationTests {
 	@Autowired
 	private DwellingRepository repo;
 
-	@Autowired
-	private PersonRepository personRepo;
-
 	@Test
 	public void whenGettingDwellingById() {
-		Dwelling testDwelling = new Dwelling(5, "A", 50000);
+		Dwelling testDwelling = new Dwelling("Mamerto", "Ibarreto", "12345678-k", 5, "A", 50000);
 		entityManager.persist(testDwelling);
 		entityManager.flush();
 
@@ -45,30 +40,30 @@ class CondoAdminApplicationTests {
 
 	@Test
 	public void whenGettingPersonByDni() {
-		Person testPerson = new Person("Mamerto", "Ibarreto", "12345678-k", "A");
+		Dwelling testPerson = new Dwelling("Mamerto", "Ibarreto", "12345678-k", 5, "A", 50000);
 		entityManager.persist(testPerson);
 		entityManager.flush();
 
-		Person person = personRepo.findByDni("12345678-k");
-		assertThat(person.getDNI()).isEqualTo(testPerson.getDNI());
+		Dwelling person = repo.findByDni("12345678-k");
+		assertThat(person.getDni()).isEqualTo(testPerson.getDni());
 	}
 
 	@Test
 	public void whenGettingPersonByNameAndLastName() {
-		Person testPerson1 = new Person("Mamerto", "Ibarreto", "12345678-k", "A");
-		Person testPerson2 = new Person("Mamerto", "Ibarreto", "32345678-k", "B");
+		Dwelling testPerson1 = new Dwelling("Mamerto", "Ibarreto", "12345678-k", 5, "A", 50000);
+		Dwelling testPerson2 = new Dwelling("Mamerto", "Ibarreto", "32165485-k", 5, "B", 10000);
 		entityManager.persist(testPerson1);
 		entityManager.persist(testPerson2);
 		entityManager.flush();
 
-		List<Person> persons = personRepo.findByNameAndLastName("Mamerto", "Ibarreto");
+		List<Dwelling> persons = repo.findByNameAndLastName("Mamerto", "Ibarreto");
 
 		assertThat(persons, containsInAnyOrder(testPerson1, testPerson2));
 	}
 	
 	@Test
 	public void whenUpdatingTheDebt() {
-		Dwelling testDwelling = new Dwelling(5, "A", 50000);
+		Dwelling testDwelling = new Dwelling("Mamerto", "Ibarreto", "12345678-k", 5, "A", 50000);
 		entityManager.persist(testDwelling);
 		entityManager.flush();
 		

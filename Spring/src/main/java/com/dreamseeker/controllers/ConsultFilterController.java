@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.dreamseeker.models.entity.Dwelling;
-import com.dreamseeker.models.entity.Person;
 import com.dreamseeker.models.services.DAOService;
 
 import javafx.scene.control.TextField;
@@ -53,10 +52,10 @@ public class ConsultFilterController {
 	@FXML
 	private ListView<String> resultList = new ListView<>(); // TODO change it by a TableView()
 
-	private List<Person> personsResult; // TODO find a better name for this
+	private List<Dwelling> dwellingResult; // TODO find a better name for this
 
 	public void findPersonByName() {
-		personsResult = daoService.getPersonByName(name.getText(), lastName.getText()); // TODO pensar bien si debo
+		dwellingResult = daoService.getDwellingByName(name.getText(), lastName.getText()); // TODO pensar bien si debo
 																						// instanciarlo en la
 																						// declaracion
 
@@ -65,36 +64,33 @@ public class ConsultFilterController {
 	}
 
 	private void fillListWithResults() {
-		if (personsResult.size() > 0) {
-			List<String> personsString = new ArrayList<String>();
-			for (Person person : personsResult) {
-				personsString.add(person.toString());
+		if (dwellingResult.size() > 0) {
+			List<String> dwellingString = new ArrayList<>();
+			for (Dwelling dwelling : dwellingResult) {
+				dwellingString.add(dwelling.toString());
 			}
-			ObservableList<String> results = FXCollections.observableArrayList(personsString);
+			ObservableList<String> results = FXCollections.observableArrayList(dwellingString);
 			resultList.setItems(results);
 		}
 	}
 
 	public void findPersonByApartmentId() {
-		personsResult = new ArrayList<>();
-		personsResult.add(daoService.getPersonByApartmentId(apartmentId.getText())); //TODO personResult should be emptied when it's use in the different tabs
+		dwellingResult = new ArrayList<>();
+		dwellingResult.add(daoService.getDwellingByApartmentId(apartmentId.getText()));
 		fillListWithResults();
-//		openResultWindow();
 	}
 
 	public void findPersonByDNI() {
-		personsResult = new ArrayList<>();
-		personsResult.add(daoService.getPersonByDNI(dni.getText()));
+		dwellingResult = new ArrayList<>();
+		dwellingResult.add(daoService.getDwellingByDNI(dni.getText()));
 		fillListWithResults();
-//		openResultWindow();
 	}
 
 	public void openResultWindow() {
 
 		int index = resultList.getSelectionModel().getSelectedIndex();
 		if (index >= 0) {
-			Person person = personsResult.get(index);
-			Dwelling dwelling = daoService.getDwellingByApartmentId(person.getApartmentID());
+			Dwelling dwelling = dwellingResult.get(index);
 
 			Parent root = fxWeaver.loadView(SearchResultController.class); // TODO test getting the bean from the Spring
 																			// context
@@ -103,7 +99,7 @@ public class ConsultFilterController {
 			stage.setScene(scene);
 
 			SearchResultController controller = fxWeaver.getBean(SearchResultController.class);
-			controller.initData(person, dwelling);
+			controller.initData(dwelling);
 
 			stage.show();
 		}

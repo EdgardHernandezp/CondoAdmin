@@ -9,17 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dreamseeker.models.dao.DwellingRepository;
-import com.dreamseeker.models.dao.PersonRepository;
 import com.dreamseeker.models.entity.Dwelling;
-import com.dreamseeker.models.entity.Person;
 
 @Service
 public class DAOService {
 
 	@Autowired
 	DwellingRepository dwellingRepo;
-	@Autowired
-	PersonRepository personRepo;
 
 	@Transactional
 	public boolean addPerson(Dwelling dwelling) {
@@ -42,18 +38,13 @@ public class DAOService {
 	}
 	
 	@Transactional
-	public Person getPersonByDNI(String dni) {
-		return personRepo.findByDni(dni);
+	public Dwelling getDwellingByDNI(String dni) {
+		return dwellingRepo.findByDni(dni);
 	}
 	
 	@Transactional
-	public ArrayList<Person> getPersonByName(String name, String lastName) {
-		return personRepo.findByNameAndLastName(name, lastName);
-	}
-	
-	@Transactional
-	public Person getPersonByApartmentId(String apartmentId) {
-		return personRepo.findByApartmentID(apartmentId);
+	public ArrayList<Dwelling> getDwellingByName(String name, String lastName) {
+		return dwellingRepo.findByNameAndLastName(name, lastName);
 	}
 	
 	@Transactional

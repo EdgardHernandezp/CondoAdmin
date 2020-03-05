@@ -3,7 +3,6 @@ package com.dreamseeker.controllers;
 import org.springframework.stereotype.Component;
 
 import com.dreamseeker.models.entity.Dwelling;
-import com.dreamseeker.models.entity.Person;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -29,10 +28,10 @@ public class SearchResultController {
 	@FXML
 	private TextField debt;
 
-	public void initData(Person person, Dwelling dwelling) {
-		name.setText(person.getName());
-		lastname.setText(person.getLastName());
-		dni.setText(person.getDNI());
+	public void initData(Dwelling dwelling) {
+		name.setText(dwelling.getName());
+		lastname.setText(dwelling.getLastName());
+		dni.setText(dwelling.getDni());
 		apartmentID.setText(dwelling.getApartmentID());
 		debt.setText(Float.toString(dwelling.getDebt())); //TODO factorize float to string, make it more readable
 	}
