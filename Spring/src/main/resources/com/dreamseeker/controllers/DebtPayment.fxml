@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.dreamseeker.controllers.DebtPaymentController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <ListView layoutX="289.0" layoutY="14.0" prefHeight="376.0" prefWidth="340.0" />
+            <Button layoutX="211.0" layoutY="361.0" mnemonicParsing="false" onAction="#updateDwellingData" text="Aceptar" />
+            <TextField fx:id="totalDebtTxtField" layoutX="26.0" layoutY="76.0" />
+            <TextField fx:id="payByMonthTxtField" layoutX="26.0" layoutY="165.0" />
+            <TextField fx:id="paySpecificAmountTxtField" disable="true" layoutX="26.0" layoutY="228.0" />
+            <TextField fx:id="pendingDebtTxtField" editable="false" layoutX="33.0" layoutY="313.0" />
+            <RadioButton fx:id="payByMonthRadioBtn" layoutX="26.0" layoutY="139.0" mnemonicParsing="false" onAction="#setAmountRadioBtn" selected="true" text="Pay by month" />
+            <RadioButton fx:id="paySpecifcAmountRadioBtn" layoutX="26.0" layoutY="202.0" mnemonicParsing="false" onAction="#setMonthRadioBtn" text="Pay specific amount" />
+            <Label layoutX="26.0" layoutY="46.0" text="Total debt" />
+            <Label layoutX="33.0" layoutY="288.0" text="Pending debt" />
+      </children>
+    </AnchorPane>
+      <RadioButton mnemonicParsing="false" text="RadioButton" />
+  </children>
+</VBox>
