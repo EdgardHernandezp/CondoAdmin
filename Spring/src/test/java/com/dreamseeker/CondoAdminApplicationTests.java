@@ -2,6 +2,7 @@ package com.dreamseeker;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.hamcrest.collection.IsIterableContainingInAnyOrder.containsInAnyOrder;
 import static org.junit.Assert.assertThat;
 
+import com.dreamseeker.models.dao.DebtsRepository;
 import com.dreamseeker.models.dao.DwellingRepository;
+import com.dreamseeker.models.entity.Debt;
 import com.dreamseeker.models.entity.Dwelling;
 
 @RunWith(SpringRunner.class)
@@ -26,6 +29,9 @@ class CondoAdminApplicationTests {
 
 	@Autowired
 	private DwellingRepository repo;
+	
+	@Autowired
+	private DebtsRepository debtRepo;
 
 	@Test
 	public void whenGettingDwellingById() {
@@ -73,6 +79,17 @@ class CondoAdminApplicationTests {
 		
 		assertThat(dwelling.getApartmentID()).isEqualTo(testDwelling.getApartmentID());
 		assertThat(dwelling.getDebt()).isEqualTo(10000);
+	}
+	
+	@Test
+	public void whenGettingDebtsByApartmentId() {
+		Debt debt = new Debt("501", 30000, "December");
+		entityManager.persist(debt);
+		entityManager.flush();
+		
+		ArrayList<Debt> testDebts = debtRepo.findAllByApartmentId("501");
+		
+		assertThat(testDebts, containsInAnyOrder(debt));
 	}
 
 }

@@ -53,6 +53,4 @@ public class DAOService {
 		dwellingToUpdate.setDebt(debt);
 		return dwellingRepo.save(dwellingToUpdate);
 	}
-	
-	
 }
